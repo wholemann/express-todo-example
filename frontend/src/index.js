@@ -1,6 +1,6 @@
 import { render } from './view';
 import { bindEvents } from './listener';
-import { getTasks, fetchTasks } from './services';
+import { fetchTasks } from './services';
 
 const bind = (id, eventType, callback) => {
   const el = document.getElementById(id);
@@ -20,6 +20,10 @@ const update = (state) => {
 }
 
 (async () => {
-  const state = await fetchTasks();
-  update(state);
+  try {
+    const state = await fetchTasks();
+    update(state);
+  } catch (e) {
+    console.error(e);
+  }
 })();
