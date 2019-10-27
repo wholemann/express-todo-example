@@ -1,4 +1,4 @@
-import { addTask, removeTask, toggleTask } from './services';
+import { addTask, removeTask, toggleTask } from './taskService';
 
 export const bindEvents = (state, methods) => {
   bindAddTask(state, methods);

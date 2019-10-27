@@ -1,6 +1,6 @@
 import { render } from './view';
 import { bindEvents } from './listener';
-import { fetchTasks } from './services';
+import { fetchTasks } from './taskService';
 
 const bind = (id, eventType, callback) => {
   const el = document.getElementById(id);

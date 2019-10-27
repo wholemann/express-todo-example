@@ -5,7 +5,7 @@ import { toggleTask as apiToggleTasks } from './apis/task';
 
 export const addTask = async (title) => {
   try {
-    await apiAddTasks(title);
+    return await apiAddTasks(title);
   } catch (e) {
     console.error(e);
   }
@@ -13,7 +13,7 @@ export const addTask = async (title) => {
 
 export const removeTask = async (taskId) => {
   try {
-    await apiRemoveTasks(taskId);
+    return await apiRemoveTasks(taskId);
   } catch (e) {
     console.error(e);
   }
@@ -21,7 +21,7 @@ export const removeTask = async (taskId) => {
 
 export const toggleTask = async (taskId) => {
   try {
-    await apiToggleTasks(taskId);
+    return await apiToggleTasks(taskId);
   } catch (e) {
     console.error(e);
   }
@@ -29,7 +29,7 @@ export const toggleTask = async (taskId) => {
 
 export const fetchTasks = async () => {
   try {
-    await apiGetTasks();
+    return await apiGetTasks();
   } catch (e) {
     console.error(e);
   }
