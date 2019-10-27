@@ -12,11 +12,7 @@ const getValue = id => {
   return el.value;
 };
 
-const update = () => {
-  const state = {
-    tasks: getTasks(),
-  };
-
+const update = (state) => {
   const el = document.getElementById('app');
   el.innerHTML = render(state);
 
@@ -24,6 +20,6 @@ const update = () => {
 }
 
 (async () => {
-  await fetchTasks();
-  update();
+  const state = await fetchTasks();
+  update(state);
 })();

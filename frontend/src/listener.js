@@ -9,8 +9,8 @@ export const bindEvents = (state, methods) => {
 const bindAddTask = (_, { bind, getValue, update }) => {
   bind('button-add-task', 'click', async () => {
     const title = getValue('input-task-title');
-    await addTask(title);
-    update();
+    const newState = await addTask(title);
+    update(newState);
   });
 };
 
@@ -20,8 +20,8 @@ const bindRemoveTask = (state, { bind, _, update }) => {
   tasks.forEach(task => {
     const { id } = task;
     bind(`button-remove-task-${id}`, 'click', async () => {
-      await removeTask(id);
-      update();
+      const newState = await removeTask(id);
+      update(newState);
     });
   });
 };
@@ -32,8 +32,8 @@ const bindCheckbox = (state, { bind, _, update }) => {
   tasks.forEach(task => {
     const { id } = task;
     bind(`checkbox-task-${id}`, 'click', async () => {
-      await toggleTask(id);
-      update();
+      const newState = await toggleTask(id);
+      update(newState);
     });
   });
 };
